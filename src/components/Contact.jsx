@@ -36,7 +36,15 @@ const Contact = () => {
             Reach Us
           </div>
 
-          <form className="flex flex-col gap-12 md:gap-16 w-full">
+          <form 
+            action="https://formsubmit.co/ayyalarameshnaidu@gmail.com" 
+            method="POST" 
+            className="flex flex-col gap-12 md:gap-16 w-full"
+          >
+            {/* FormSubmit configurations */}
+            <input type="hidden" name="_subject" value="New Portfolio Message!" />
+            <input type="hidden" name="_captcha" value="false" />
+
             <div className="flex flex-col md:flex-row gap-12 md:gap-20 w-full">
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-10">
@@ -44,7 +52,9 @@ const Contact = () => {
                   <input 
                     type="text" 
                     id="firstName" 
+                    name="First Name"
                     placeholder="First Name" 
+                    required
                     className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
                   />
                 </div>
@@ -52,7 +62,9 @@ const Contact = () => {
                   <input 
                     type="text" 
                     id="lastName" 
+                    name="Last Name"
                     placeholder="Last Name" 
+                    required
                     className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
                   />
                 </div>
@@ -60,7 +72,9 @@ const Contact = () => {
                   <input 
                     type="email" 
                     id="email" 
+                    name="Email"
                     placeholder="Email" 
+                    required
                     className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
                   />
                 </div>
@@ -71,7 +85,9 @@ const Contact = () => {
                 <div className="relative h-full flex flex-col">
                   <textarea 
                     id="message" 
+                    name="Message"
                     placeholder="Type your message here" 
+                    required
                     className="w-full h-full min-h-[120px] bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium resize-none rounded-none"
                   ></textarea>
                 </div>

@@ -1,23 +1,30 @@
 import React from 'react';
-import stackImage from '../assets/about/image.png';
-import reactImage from '../assets/about/react.png';
-import nodeImage from '../assets/about/node.png';
-import mongoImage from '../assets/about/mongodb.png';
+import stackImage from '../assets/about/image2.png';
 
 const About = () => {
+  const skills = [
+    { name: "React", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+    { name: ".NET Core", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
+    { name: "C#", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
+    { name: "JavaScript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+    { name: "SQL Server", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" },
+    { name: "PostgreSQL", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+    { name: "Docker", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" }
+  ];
+
   return (
-    <section className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
-        
+
         {/* Left Side: ID Badge and Skills */}
         <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-12 md:mt-0">
-          
+
           <div data-aos="drop-bounce" className="relative flex justify-center w-full">
             {/* Lanyard string */}
             <div className="absolute -top-32 left-1/2 w-3 h-40 bg-black transform -translate-x-1/2 shadow-inner z-0"></div>
             {/* Lanyard clip */}
             <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 transform -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]"></div>
-            
+
             {/* Badge Card */}
             <div className="bg-gray-900 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
               {/* Cutout Hole */}
@@ -26,9 +33,9 @@ const About = () => {
               </div>
               {/* Image Container */}
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
-                <img 
-                  src={stackImage} 
-                  alt="Profile" 
+                <img
+                  src={stackImage}
+                  alt="Profile"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -38,33 +45,47 @@ const About = () => {
         </div>
 
         {/* Right Side: Info Content */}
-        <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20">
-          
+        <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20 w-full overflow-hidden">
+
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Hello!</h2>
           <p className="text-lg font-bold mb-12 leading-relaxed max-w-3xl text-red-50">
-            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Leeshark</span>, a passionate full-stack developer based in [Location], dedicated to crafting clean, functional, and highly scalable web applications.
+            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Ramesh Ayyala</span>. I am a results-driven Full Stack Developer with 3 years of experience building scalable, high-performance web applications using .NET Core Web API and React/React Native. Based in Hyderabad, India, I specialize in end-to-end product delivery — from secure RESTful APIs to responsive UIs, AWS cloud deployments, and Docker containerization.
           </p>
 
-          {/* Horizontal Skills Row (Transparent & Large) */}
-          <div className="flex items-center gap-10 mt-8">
-            <img 
-              data-aos="zoom-in" data-aos-delay="300"
-              src={reactImage} 
-              alt="React" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
-            <img 
-              data-aos="zoom-in" data-aos-delay="450"
-              src={nodeImage} 
-              alt="Node.js" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
-            <img 
-              data-aos="zoom-in" data-aos-delay="600"
-              src={mongoImage} 
-              alt="MongoDB" 
-              className="w-20 h-20 md:w-24 md:h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
+          {/* Horizontal Skills Row - Infinite Auto Scroll */}
+          <div id="skills" className="relative w-full overflow-hidden mt-8 py-5 bg-black/10 rounded-2xl border border-white/10 backdrop-blur-md">
+            {/* Gradient mask for smooth fading edges */}
+            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-red-600/30 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-red-600/30 to-transparent z-10 pointer-events-none"></div>
+
+            <div className="flex w-max gap-12 animate-marquee hover:[animation-play-state:paused] cursor-pointer items-center">
+              {/* Loop 1 */}
+              {skills.map((skill, idx) => (
+                <div key={`marquee-1-${idx}`} className="flex flex-col items-center gap-2 min-w-[70px] md:min-w-[80px]">
+                  <img
+                    src={skill.url}
+                    alt={skill.name}
+                    className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-115 transition-transform duration-300 drop-shadow-2xl"
+                  />
+                  <span className="text-[10px] md:text-xs font-bold text-white/80 font-mono tracking-wider">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+              {/* Loop 2 (seamless duplication) */}
+              {skills.map((skill, idx) => (
+                <div key={`marquee-2-${idx}`} className="flex flex-col items-center gap-2 min-w-[70px] md:min-w-[80px]">
+                  <img
+                    src={skill.url}
+                    alt={skill.name}
+                    className="w-14 h-14 md:w-16 md:h-16 object-contain hover:scale-115 transition-transform duration-300 drop-shadow-2xl"
+                  />
+                  <span className="text-[10px] md:text-xs font-bold text-white/80 font-mono tracking-wider">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
@@ -79,10 +100,10 @@ const About = () => {
 
       {/* Decorative stars */}
       <div className="absolute top-10 right-10 md:right-20 text-black opacity-30 animate-pulse">
-        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
+        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z" /></svg>
       </div>
       <div className="absolute bottom-32 left-4 md:left-20 text-black opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
-        <svg className="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
+        <svg className="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z" /></svg>
       </div>
     </section>
   );
